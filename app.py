@@ -53,7 +53,7 @@ def get_messages():
     rows = cursor.fetchall()
 
     # Format the results and add a form too
-    return format_messages(rows) + generate_form()
+    return get_title() + format_messages(rows) + generate_form()
 
 
 # These two methods generate HTML lists and forms
@@ -66,6 +66,9 @@ def format_messages(messages):
         output += f"<li>{escaped_message}</li>"
     output += "</ul>"
     return output
+
+def get_title():
+    return "<p style=\"font-size:96px\">🔈 Makers Messages 👂</p>"
 
 def generate_form():
     return """
